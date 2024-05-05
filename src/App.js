@@ -7,7 +7,6 @@ import EpicView from './containers/epic';
 import DonkiView from './containers/donki';
 import DashboardView from './containers/dashboard';
 import LoginForm from './containers/auth/login';
-import { TOKEN } from './util';
 function App() {
 
   const PrivateRoute = ( children ) => {
@@ -21,10 +20,10 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/dashboard" element={PrivateRoute(<ApodView/>)} />
-        <Route path="/epic" element={PrivateRoute(<EpicView />)} />
-        <Route path="/rover" element={PrivateRoute(<RoverView />)} />
-        <Route path="/donki" element={PrivateRoute(<DonkiView />)} />
+      <Route path="/dashboard" element={<ApodView/>} />
+        <Route path="/epic" element={<EpicView />} />
+        <Route path="/rover" element={<RoverView />} />
+        <Route path="/donki" element={<DonkiView />} />
 
         <Route path="/" element={<LoginForm />} />
         

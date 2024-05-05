@@ -14,21 +14,22 @@ const LoginForm = () => {
   const onFinish = async (values) => {
     setLoading(true); // Set loading to true
     try {
-      const response = await fetch('http://localhost:8000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      });
+      // const response = await fetch('http://localhost:8000/login', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(values),
+      // });
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem(TOKEN, data.token); // Store token in local storage
-        navigate('/dashboard'); // Navigate to dashboard on successful login
-      } else {
-        setError('Invalid email or password. Please try again.'); // Set error message for invalid credentials
-      }
+      // if (response.ok) {
+      //   const data = await response.json();
+      //   localStorage.setItem(TOKEN, data.token); // Store token in local storage
+      //   navigate('/dashboard'); // Navigate to dashboard on successful login
+      // } else {
+      //   setError('Invalid email or password. Please try again.'); // Set error message for invalid credentials
+      // }
+      navigate('/dashboard');
     } catch (error) {
       console.error('Login error:', error);
       setError('An error occurred. Please try again later.'); // Set error message for other errors
