@@ -11,22 +11,10 @@ import { TOKEN } from './util';
 function App() {
 
   const PrivateRoute = ( children ) => {
-    const token = localStorage.getItem(TOKEN);
-console.log('✌️token --->', token);
-    return token ? (
-      <>
-        <DashboardView />
-        {children}
-      </>
-    ) : (
-       <LoginForm/>
-    );
-    // return(
-    //         <>
-    //     <DashboardView />
-    //     {children}
-    //   </>
-    // )
+    <>
+    <DashboardView />
+    {children}
+  </>
   };
 
 
