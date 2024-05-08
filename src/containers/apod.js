@@ -50,8 +50,23 @@ const ApodView = () => {
           <Col xs={24} sm={20} md={16} lg={12}>
             <Card
               title={apodData.title}
-              cover={<img alt={apodData.title} src={apodData.url} style={{ maxHeight: '500px' }} />}
             >
+              {apodData.media_type === 'image' ? ( // Display image
+                <img alt={apodData.title} src={apodData.url} style={{ width: '100%', maxHeight: '500px', objectFit: 'cover' }} />
+              ) : apodData.media_type === 'video' ? ( // Display video
+                <div style={{ position: 'relative', overflow: 'hidden', paddingTop: '56.25%' }}>
+                  <iframe 
+                    title={apodData.title}
+                    src={apodData.url} 
+                    frameBorder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowFullScreen
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
+                  />
+                </div>
+              ) : ( // Unsupported media type
+                <Text>Unsupported media type</Text>
+              )}
               <Text>{apodData.explanation}</Text>
             </Card>
           </Col>
